@@ -20,7 +20,7 @@ class Settings
     end
     
     def fetch!
-      @@expires = 5.minutes.from_now
+      @@expires = Time.now + 300
       @@cache = {}
       @@model.all.each do |setting| 
         entity, attr = setting.entity.to_sym, setting.attr.to_sym
