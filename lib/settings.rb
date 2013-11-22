@@ -31,8 +31,8 @@ class Settings
       @@cache = {}
       @@model.all.each do |setting| 
         entity, attr, _ = raw_eav(setting)
-        @@cache[entity] ||= {}
-        @@cache[entity][attr] = format_value_for(setting)
+        @@cache[entity.to_sym] ||= {}
+        @@cache[entity.to_sym][attr.to_sym] = format_value_for(setting)
       end
     end
 
