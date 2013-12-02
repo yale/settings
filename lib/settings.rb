@@ -59,7 +59,8 @@ class Settings
       entity, attr, value = raw_eav(setting)
       
       # Coerce numeric values
-      if value.is_numeric?
+      is_number = Float(value) != nil rescue false
+      if is_number
         value = Float(value)
         if value % 1 == 0
           value = value.to_i
